@@ -179,7 +179,7 @@ Display the counter value in a separate component.
 
 # ⚠️ Note
 
-- **Assignment to be submitted by July 3, 2026.**
+- **Assignment to be submitted by July 5, 2026.**
 - Use **React + Vite** only.
 - Use **Tailwind CSS** for styling.
 - Attempt this using only the concepts covered in this week's playlist — **no external libraries**.
