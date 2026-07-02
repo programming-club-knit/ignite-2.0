@@ -148,13 +148,14 @@ Reset
 Display the counter value in a separate component.
 
 ⚠️ Note
-Assignment to be submitted before the announced deadline.
+Assignment to be submitted by July 10 , 2026.
 Use React + Vite only.
 Use Tailwind CSS for styling.
-Do not use external UI libraries (Bootstrap, Material UI, etc.).
+Attempt this using only the concepts covered in this week's playlist — no external libraries.
 Write clean, reusable components.
 Comment your code wherever the logic is not obvious.
 Ensure your application runs without warnings or errors before submission.
-🚀 Happy Coding!
 
-Keep your components reusable, your state minimal, and your code clean. Practice building React applications by breaking the UI into small, manageable components and making the most of React Hooks.
+🚀 Happy Coding! Build, test, debug, and keep going.
+
+
