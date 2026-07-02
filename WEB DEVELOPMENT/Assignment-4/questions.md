@@ -34,9 +34,9 @@ Manage shared state using Context API.
 Understand when Redux Toolkit is useful.
 
 📋 Part A: Theoretical Questions (2 Questions)
-Ques 1
 
-Explain the difference between Props and State in React.
+
+Ques 1 Explain the difference between Props and State in React.
 
 Your answer should include:
 
@@ -45,9 +45,9 @@ What State is
 When each should be used
 Why Props are immutable while State can change
 One small example demonstrating both
-Ques 2
 
-Explain the purpose of the following React Hooks:
+
+Ques 2 Explain the purpose of the following React Hooks:
 
 useEffect
 useRef
@@ -58,7 +58,9 @@ For each hook, mention:
 Why it is used
 When you should use it
 One practical example
+
 💻 Part B: Practical Coding Questions (3 Questions)
+
 Ques 3. Student Directory (Components + Props + useState + Tailwind)
 
 Build a React application using Vite and Tailwind CSS.
@@ -86,6 +88,7 @@ Pass data using Props
 Add a button to toggle whether student details are visible using useState
 Style the application using Tailwind CSS
 Components should be reusable
+
 Ques 4. User Dashboard (Hooks + API Fetching + React Router)
 
 Create a React application with two pages:
@@ -108,6 +111,7 @@ Show a loading indicator while fetching
 Handle errors properly
 Navigate using React Router
 Add a search box to filter users by name
+
 Ques 5. Theme Manager (Context API + Custom Hook + Redux Toolkit)
 
 Build a React application demonstrating global state management.
