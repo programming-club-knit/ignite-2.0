@@ -1,0 +1,76 @@
+Week 3 - Theoretical Questions
+
+Q1. Regular function vs arrow function with this
+
+function regular() {
+  console.log(this);
+}
+const arrow = () => {
+  console.log(this);
+};
+const obj = { regular, arrow };
+obj.regular();
+obj.arrow();
+
+obj.regular() prints obj because a normal function's this depends on how it is called, and here it's called as obj.regular().
+
+obj.arrow() does not print obj. Arrow functions don't have their own this, they just keep whatever this was where they were defined. Since arrow was defined outside obj, it stays that way no matter how you call it.
+
+Q2. call, apply and bind
+
+All three set what this is inside a function.
+
+call runs the function now, arguments one by one:
+function greet(city) { console.log(this.name + " is from " + city); }
+greet.call({ name: "Rohan" }, "Lucknow");
+
+apply runs the function now too, but arguments go in as an array:
+function order(item, qty) { console.log(this.name + " ordered " + qty + " " + item); }
+order.apply({ name: "Priya" }, ["samosas", 4]);
+
+bind doesn't run it right away, it just gives you a new function with this fixed in place for later:
+function show() { console.log("Logged in as " + this.username); }
+const boundShow = show.bind({ username: "tushar25477" });
+setTimeout(boundShow, 1000);
+
+Q3. Call stack, microtask queue, macrotask queue
+
+console.log("1");
+setTimeout(() => console.log("2"), 0);
+Promise.resolve().then(() => console.log("3"));
+console.log("4");
+
+Output: 1, 4, 3, 2
+
+"1" and "4" run first since they're normal synchronous code. setTimeout's callback goes to the macrotask queue and waits, even with 0ms delay. The promise's .then() goes to the microtask queue. Once the main code is done, JS clears the microtask queue first ("3"), then moves to the macrotask queue ("2"). Microtasks always run before macrotasks.
+
+Q4. Promise.all, Promise.race, Promise.allSettled, Promise.any
+
+Promise.all: waits for all to resolve, but rejects immediately if even one fails.
+Promise.race: settles as soon as the first one settles, win or lose.
+Promise.allSettled: waits for all, never rejects, just tells you which ones passed or failed.
+Promise.any: resolves on the first success, only rejects if all of them fail.
+
+const p1 = Promise.resolve("ok");
+const p2 = Promise.reject("failed");
+Promise.all([p1, p2]).catch(e => console.log(e));
+Promise.race([p1, p2]).then(r => console.log(r));
+Promise.allSettled([p1, p2]).then(r => console.log(r));
+Promise.any([p1, p2]).then(r => console.log(r));
+
+Q5. Closures and garbage collection
+
+A closure is when a function keeps access to variables from the function it was created inside, even after that outer function has finished.
+
+function createGreeter(name) {
+  let count = 0;
+  return function () {
+    count++;
+    console.log("Hello " + name + ", called " + count + " times");
+  };
+}
+const greetTushar = createGreeter("Tushar");
+greetTushar();
+greetTushar();
+
+Normally count and name would get cleared once createGreeter finishes. But the returned function still uses them, so they stay reachable, and JS only clears variables that are no longer reachable. That's why count keeps increasing correctly on every call.
